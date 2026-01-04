@@ -93,8 +93,23 @@
     </div>   
     <script type="text/javascript">
       function calc(func=String, valor=String){
+        result = Boolean(false)
         if (func == "ação"){
-
+          if (valor == "c"){
+              document.getElementById('visor').value = ""
+          } else if (
+            valor == "+"|| 
+            valor == "-" || 
+            valor == "*"|| 
+            valor == "/"||
+            valor == "."){
+              document.getElementById('visor').value += valor}
+          else if (valor == "="){
+            expressao = document.getElementById('visor').value
+            document.getElementById('visor').value = eval(expressao)
+            //eval: joga uma string para o interpretador, que por sua vez a interpreta como um código js
+            resul = true
+          }
         } else if (func == "valor"){
           document.getElementById('visor').value += valor
         }}
